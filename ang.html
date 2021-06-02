@@ -1,0 +1,36 @@
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body>
+            <div ng-app="myApp" ng-controller="formCtrl">
+                    <form novalidate>
+                      First Name:<br>
+
+
+                      <input type="text" ng-model="firstName"><br>
+
+                      Last Name:<br>
+
+                      <input type="text" ng-model="firstName">
+
+
+                      <br><br>
+                      <button ng-click="reset()">RESET</button>
+                    </form>
+                    <p>form = {{firstName}}</p>
+                    <p>fixed = {{lastName}}</p>
+                  </div>
+                  
+                  <script>
+                  var app = angular.module('myApp', []);
+                  app.controller('formCtrl', function($scope) {
+                      $scope.lastName = "fized";
+                      $scope.reset = function() {
+                          $scope.firstName = angular.copy($scope.lastName);
+                      };
+                      $scope.reset();
+                  });
+                  </script>
+    </body>
+
+
+</html>
